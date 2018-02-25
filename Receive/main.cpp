@@ -26,7 +26,7 @@ void checkConnection(){
 
 void receiveSignal(){
     bool pinOn = false;
-    while (true){
+    while (charQueue.size() <= 6){
 //        uBit.display.scroll("hi");
         //read current number of milliseconds
         currentTime = (int)uBit.systemTime();
@@ -39,29 +39,25 @@ void receiveSignal(){
 
         if(pinOn){
                 if (delta > 150) {
-//                    uBit.display.scroll('-');
                     charQueue.push('-');
                     uBit.sleep(500);
                     pinOn = false;
                 }
 
-                else if (delta < 150) {
-//                    uBit.display.scroll('.');
+                else if (delta <= 50) {
                     charQueue.push('.');
                     uBit.sleep(500);
                     pinOn = false;
                 }
 
         }
-
     }
 }
 
-void printAll(){
-    while(!charQueue.empty()){
-        uBit.display.print(charQueue.front());
-        uBit.sleep(500);
-        charQueue.pop();
+void printAll(std::queue<char> queue){
+    while(!queue.empty()){
+        uBit.display.print(queue.front());
+        queue.pop();
         uBit.sleep(500);
         uBit.display.clear();
     }
@@ -72,11 +68,13 @@ int main()
 {
     // Initialise the micro:bit runtime.
     uBit.init();
-    
-//    receiveSignal();
-    charQueue.push('-');
-    charQueue.push('.');
-    printAll();
+
+//    printAll(charQueue);
+    receiveSignal();
+    printAll(charQueue);
+//    charQueue.push('-');
+//    charQueue.push('.');
+
 
 
     // If main exits, there may still be other fibers running or registered event handlers etc.
