@@ -42,6 +42,9 @@ void setDotDash(uint64_t delta){
         else if((delta < 150) && (delta > 0)) {
                 charQueue.push('.');
         }
+        else{
+                uBit.display.print('nah');
+        }
 }
 
 bool sendDigitalSignal(){
@@ -77,7 +80,7 @@ bool sendDigitalSignal(){
         uint64_t delta = system_timer_current_time() - reading;
    } */
 
-void setMessage(){
+bool setMessage(){
         while(buttonB.isPressed() == false) {
                 uint64_t reading = system_timer_current_time();
                 while (buttonA.isPressed()) {
@@ -89,7 +92,7 @@ void setMessage(){
                 if(pressed == true) {
                         pressed = false;
                         if(charQueue.size() >= 6) {
-                                bPressed = true;
+                                return true;
                         }
                         else{
                                 setDotDash(delta);
@@ -97,28 +100,26 @@ void setMessage(){
 
                 }
         }
+        return true;
 }
 
 int main()
 {
         // Initialise the micro:bit runtime.
-        char dot = '.';
-        char dash = '-';
-
         uBit.init();
+
         while(true) {
-          P0.setDigitalValue(1);
-          uBit.sleep(500);
-          P0.setDigitalValue(0);
-          uBit.sleep(500);
-        }
-
-
-        if(buttonA.isPressed()){//Master
-
-        }
-        else if(buttonB.isPressed()){//Slave
-
+                if(buttonA.isPressed()) {//Master
+                        while(true) {
+                                setMessage();
+                                sendDigitalSignal();
+                        }
+                }
+                else if(buttonB.isPressed()) {//Slave
+                  while(true){
+                    //Chris's code
+                  }
+                }
         }
 
 
