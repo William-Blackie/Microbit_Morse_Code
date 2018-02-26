@@ -22,14 +22,14 @@ std::queue<char> charQueue;
 
 
 /**
- * void setDotDash(uint64_t delta): translates users button press duration into dots or dashes and enqueues.
+ * void setDotDash(uint64_t delta): translates users button press duration into dots or dashes and enqueues, simple encryption swapping the first character for the oposite.
  *
  * @param uint64_t delta  duration of user button press
  * @return none
  */
 void setDotDash(uint64_t delta){
         if(charQueue.size() == 0) {
-                if(delta > 150) {
+                if(delta > 150) { //Basic swap cypher changing first dot to dash and vice versa
                         charQueue.push('.');
                 }
                 else if((delta < 150) && (delta > 0)) {
@@ -37,7 +37,7 @@ void setDotDash(uint64_t delta){
                 }
         }
         else{
-                if(delta > 150) {
+                if(delta > 150) { //selecting dot or dash to enque from delta
                         charQueue.push('-');
                 }
                 else if((delta < 150) && (delta > 0)) {
