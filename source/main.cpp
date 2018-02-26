@@ -21,10 +21,11 @@ int EPOCH = 15;
 std::queue<char> charQueue;
 
 
-/*
+/**
+ * void setDotDash(uint64_t delta): translates users button press duration into dots or dashes and enqueues.
  *
  * @param uint64_t delta  duration of user button press
- * @return
+ * @return none
  */
 void setDotDash(uint64_t delta){
         if(charQueue.size() == 0) {
@@ -45,6 +46,13 @@ void setDotDash(uint64_t delta){
         }
 }
 
+
+/**
+ * bool sendDigitalSignal(): translates charQueue into dots or dashes
+ *
+ * @param none
+ * @return true
+ */
 bool sendDigitalSignal(){
         while(charQueue.empty() != true) {
                 if(charQueue.front() == '.') { //Send Dot
@@ -69,7 +77,12 @@ bool sendDigitalSignal(){
         return true;
 }
 
-
+/**
+ * bool setMessage(): button A pressed by user to create dot or dash, button B confirms chosen sequence.
+ *
+ * @param none
+ * @return true
+ */
 bool setMessage(){
         while(buttonB.isPressed() == false) {
                 uint64_t reading = system_timer_current_time();
@@ -93,7 +106,12 @@ bool setMessage(){
         return true;
 }
 
-
+/**
+ * void concatenate(): converts charQueue elements into a string
+ *
+ * @param none
+ * @return true
+ */
 void concatenate() {
         char charArray[5];
         ManagedString result;
@@ -110,6 +128,13 @@ void concatenate() {
         uBit.display.print(result);
 }
 
+
+/**
+ * int main(): Master and slave implementation of morse code, A selects master, B selects slave.
+ *
+ * @param none
+ * @return int
+ */
 int main()
 {
         // Initialise the micro:bit runtime.
