@@ -67,11 +67,6 @@ bool sendDigitalSignal(){
                         P0.setDigitalValue(0);
                         charQueue.pop();
                 }
-                else if(charQueue.front() == ' ') {// TODO Delete?
-                        charQueue.pop();
-                        uBit.display.clear();
-                        return true;
-                }
                 uBit.sleep(50);
         }
         return true;
