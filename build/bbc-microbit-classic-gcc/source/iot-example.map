@@ -506,7 +506,7 @@ Discarded input sections
  .text._Z20microbit_seed_randomm
                 0x0000000000000000        0xc ym/microbit-dal/source/microbit-dal.a(MicroBitDevice.cpp.o)
  .rodata._Z20microbit_dal_versionv.str1.1
-                0x0000000000000000       0x1c ym/microbit-dal/source/microbit-dal.a(MicroBitDevice.cpp.o)
+                0x0000000000000000        0xa ym/microbit-dal/source/microbit-dal.a(MicroBitDevice.cpp.o)
  .group         0x0000000000000000        0x8 ym/microbit-dal/source/microbit-dal.a(MicroBitFiber.cpp.o)
  .group         0x0000000000000000        0x8 ym/microbit-dal/source/microbit-dal.a(MicroBitFiber.cpp.o)
  .group         0x0000000000000000       0x10 ym/microbit-dal/source/microbit-dal.a(MicroBitFiber.cpp.o)
@@ -3209,7 +3209,7 @@ END GROUP
 LOAD /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtend.o
 LOAD /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtn.o
 
-.text           0x0000000000018000    0x128d4
+.text           0x0000000000018000    0x128c4
  *(SORT_BY_ALIGNMENT(.Vectors))
  .Vectors       0x0000000000018000       0xc0 ym/mbed-classic/existing/mbed-classic.a(startup_NRF51822.S.obj)
                 0x0000000000018000                __Vectors
@@ -5975,89 +5975,90 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtn.o
  .rodata._ZN18MicroBitBLEManager4initE13ManagedStringS0_R10EventModelb.str1.1
                 0x000000000002a650        0xe ym/microbit-dal/source/microbit-dal.a(MicroBitBLEManager.cpp.o)
  .rodata.str1.1
-                0x000000000002a65e       0x1c ym/microbit-dal/source/microbit-dal.a(MicroBitBLEManager.cpp.o)
+                0x000000000002a65e        0xa ym/microbit-dal/source/microbit-dal.a(MicroBitBLEManager.cpp.o)
  .rodata.MicroBitDFUServiceControlCharacteristicUUID
-                0x000000000002a67a       0x10 ym/microbit-dal/source/microbit-dal.a(MicroBitDFUService.cpp.o)
-                0x000000000002a67a                MicroBitDFUServiceControlCharacteristicUUID
+                0x000000000002a668       0x10 ym/microbit-dal/source/microbit-dal.a(MicroBitDFUService.cpp.o)
+                0x000000000002a668                MicroBitDFUServiceControlCharacteristicUUID
  .rodata.MicroBitDFUServiceUUID
-                0x000000000002a68a       0x10 ym/microbit-dal/source/microbit-dal.a(MicroBitDFUService.cpp.o)
-                0x000000000002a68a                MicroBitDFUServiceUUID
+                0x000000000002a678       0x10 ym/microbit-dal/source/microbit-dal.a(MicroBitDFUService.cpp.o)
+                0x000000000002a678                MicroBitDFUServiceUUID
  .rodata.MicroBitEventServiceClientEventCharacteristicUUID
-                0x000000000002a69a       0x10 ym/microbit-dal/source/microbit-dal.a(MicroBitEventService.cpp.o)
-                0x000000000002a69a                MicroBitEventServiceClientEventCharacteristicUUID
+                0x000000000002a688       0x10 ym/microbit-dal/source/microbit-dal.a(MicroBitEventService.cpp.o)
+                0x000000000002a688                MicroBitEventServiceClientEventCharacteristicUUID
  .rodata.MicroBitEventServiceClientRequirementsCharacteristicUUID
-                0x000000000002a6aa       0x10 ym/microbit-dal/source/microbit-dal.a(MicroBitEventService.cpp.o)
-                0x000000000002a6aa                MicroBitEventServiceClientRequirementsCharacteristicUUID
+                0x000000000002a698       0x10 ym/microbit-dal/source/microbit-dal.a(MicroBitEventService.cpp.o)
+                0x000000000002a698                MicroBitEventServiceClientRequirementsCharacteristicUUID
  .rodata.MicroBitEventServiceMicroBitEventCharacteristicUUID
-                0x000000000002a6ba       0x10 ym/microbit-dal/source/microbit-dal.a(MicroBitEventService.cpp.o)
-                0x000000000002a6ba                MicroBitEventServiceMicroBitEventCharacteristicUUID
+                0x000000000002a6a8       0x10 ym/microbit-dal/source/microbit-dal.a(MicroBitEventService.cpp.o)
+                0x000000000002a6a8                MicroBitEventServiceMicroBitEventCharacteristicUUID
  .rodata.MicroBitEventServiceMicroBitRequirementsCharacteristicUUID
-                0x000000000002a6ca       0x10 ym/microbit-dal/source/microbit-dal.a(MicroBitEventService.cpp.o)
-                0x000000000002a6ca                MicroBitEventServiceMicroBitRequirementsCharacteristicUUID
+                0x000000000002a6b8       0x10 ym/microbit-dal/source/microbit-dal.a(MicroBitEventService.cpp.o)
+                0x000000000002a6b8                MicroBitEventServiceMicroBitRequirementsCharacteristicUUID
  .rodata.MicroBitEventServiceUUID
-                0x000000000002a6da       0x10 ym/microbit-dal/source/microbit-dal.a(MicroBitEventService.cpp.o)
-                0x000000000002a6da                MicroBitEventServiceUUID
+                0x000000000002a6c8       0x10 ym/microbit-dal/source/microbit-dal.a(MicroBitEventService.cpp.o)
+                0x000000000002a6c8                MicroBitEventServiceUUID
  .rodata._ZNK3BLE14hasInitializedEv.str1.1
-                0x000000000002a6ea       0x23 ym/ble/source/ble.a(BLE.cpp.o)
+                0x000000000002a6d8       0x23 ym/ble/source/ble.a(BLE.cpp.o)
  .rodata._ZN6nRF5xn10getVersionEv.str1.1
-                0x000000000002a70d       0x64 ym/ble-nrf51822/source/ble-nrf51822.a(nRF5xn.cpp.o)
+                0x000000000002a6fb       0x64 ym/ble-nrf51822/source/ble-nrf51822.a(nRF5xn.cpp.o)
  .rodata.CSWTCH.32
-                0x000000000002a771        0x3 ym/ble-nrf51822/source/ble-nrf51822.a(btle_security.cpp.o)
+                0x000000000002a75f        0x3 ym/ble-nrf51822/source/ble-nrf51822.a(btle_security.cpp.o)
  .rodata._Z13btle_gap_initv.str1.1
-                0x000000000002a774        0x6 ym/ble-nrf51822/source/ble-nrf51822.a(btle_gap.cpp.o)
+                0x000000000002a762        0x6 ym/ble-nrf51822/source/ble-nrf51822.a(btle_gap.cpp.o)
  .rodata._ZZN8nRF5xGap25getPermittedTxPowerValuesEPPKaPjE17permittedTxValues
-                0x000000000002a77a        0x9 ym/ble-nrf51822/source/ble-nrf51822.a(nRF5xGap.cpp.o)
+                0x000000000002a768        0x9 ym/ble-nrf51822/source/ble-nrf51822.a(nRF5xGap.cpp.o)
  .rodata.i2c_init.str1.1
-                0x000000000002a783       0x11 ym/mbed-classic/existing/mbed-classic.a(i2c_api.c.o)
+                0x000000000002a771       0x11 ym/mbed-classic/existing/mbed-classic.a(i2c_api.c.o)
  .rodata._setlocale_r.str1.1
-                0x000000000002a794        0x6 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-locale.o)
+                0x000000000002a782        0x6 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-locale.o)
                                           0x9 (size before relaxing)
  .rodata.str1.1
-                0x000000000002a79a        0x2 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-locale.o)
+                0x000000000002a788        0x2 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-locale.o)
  .rodata._svfprintf_r.str1.1
-                0x000000000002a79c       0x11 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-nano-svfprintf.o)
+                0x000000000002a78a       0x11 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-nano-svfprintf.o)
  .rodata._printf_i.str1.1
-                0x000000000002a7ad       0x22 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x000000000002a79b       0x22 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-nano-vfprintf_i.o)
  .rodata._ctype_
-                0x000000000002a7cf      0x101 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-ctype_.o)
-                0x000000000002a7cf                _ctype_
+                0x000000000002a7bd      0x101 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-ctype_.o)
+                0x000000000002a7bd                _ctype_
  *(SORT_BY_ALIGNMENT(.eh_frame*))
- .eh_frame      0x000000000002a8d0        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
- .eh_frame      0x000000000002a8d0        0x4 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtend.o
+ *fill*         0x000000000002a8be        0x2 
+ .eh_frame      0x000000000002a8c0        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
+ .eh_frame      0x000000000002a8c0        0x4 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtend.o
 
-.glue_7         0x000000000002a8d4        0x0
- .glue_7        0x000000000002a8d4        0x0 linker stubs
+.glue_7         0x000000000002a8c4        0x0
+ .glue_7        0x000000000002a8c4        0x0 linker stubs
 
-.glue_7t        0x000000000002a8d4        0x0
- .glue_7t       0x000000000002a8d4        0x0 linker stubs
+.glue_7t        0x000000000002a8c4        0x0
+ .glue_7t       0x000000000002a8c4        0x0 linker stubs
 
-.vfp11_veneer   0x000000000002a8d4        0x0
- .vfp11_veneer  0x000000000002a8d4        0x0 linker stubs
+.vfp11_veneer   0x000000000002a8c4        0x0
+ .vfp11_veneer  0x000000000002a8c4        0x0 linker stubs
 
-.v4_bx          0x000000000002a8d4        0x0
- .v4_bx         0x000000000002a8d4        0x0 linker stubs
+.v4_bx          0x000000000002a8c4        0x0
+ .v4_bx         0x000000000002a8c4        0x0 linker stubs
 
-.iplt           0x000000000002a8d4        0x0
- .iplt          0x000000000002a8d4        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
+.iplt           0x000000000002a8c4        0x0
+ .iplt          0x000000000002a8c4        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
 
 .ARM.extab
  *(SORT_BY_ALIGNMENT(.ARM.extab*) SORT_BY_ALIGNMENT(.gnu.linkonce.armextab.*))
-                0x000000000002a8d4                __exidx_start = .
+                0x000000000002a8c4                __exidx_start = .
 
-.ARM.exidx      0x000000000002a8d4        0x8
+.ARM.exidx      0x000000000002a8c4        0x8
  *(SORT_BY_ALIGNMENT(.ARM.exidx*) SORT_BY_ALIGNMENT(.gnu.linkonce.armexidx.*))
- .ARM.exidx     0x000000000002a8d4        0x8 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/crt0.o
- .ARM.exidx     0x000000000002a8dc        0x0 ym/mbed-classic/existing/mbed-classic.a(startup_NRF51822.S.obj)
+ .ARM.exidx     0x000000000002a8c4        0x8 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/crt0.o
+ .ARM.exidx     0x000000000002a8cc        0x0 ym/mbed-classic/existing/mbed-classic.a(startup_NRF51822.S.obj)
                                           0x8 (size before relaxing)
- .ARM.exidx     0x000000000002a8dc        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_udivmoddi4.o)
+ .ARM.exidx     0x000000000002a8cc        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_udivmoddi4.o)
                                           0x8 (size before relaxing)
-                0x000000000002a8dc                __exidx_end = .
-                0x000000000002a8dc                __etext = .
+                0x000000000002a8cc                __exidx_end = .
+                0x000000000002a8cc                __etext = .
 
-.rel.dyn        0x000000000002a8dc        0x0
- .rel.iplt      0x000000000002a8dc        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
+.rel.dyn        0x000000000002a8cc        0x0
+ .rel.iplt      0x000000000002a8cc        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
 
-.data           0x0000000020002000      0x218 load address 0x000000000002a8dc
+.data           0x0000000020002000      0x218 load address 0x000000000002a8cc
                 0x0000000020002000                __data_start__ = .
  *(SORT_BY_ALIGNMENT(vtable))
  *(SORT_BY_ALIGNMENT(.data*))
@@ -6122,10 +6123,10 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtn.o
                 0x0000000020002218                . = ALIGN (0x4)
                 0x0000000020002218                __data_end__ = .
 
-.igot.plt       0x0000000020002218        0x0 load address 0x000000000002aaf4
+.igot.plt       0x0000000020002218        0x0 load address 0x000000000002aae4
  .igot.plt      0x0000000020002218        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
 
-.bss            0x0000000020002218      0x8f8 load address 0x000000000002aaf8
+.bss            0x0000000020002218      0x8f8 load address 0x000000000002aae8
                 0x0000000020002218                . = ALIGN (0x4)
                 0x0000000020002218                __bss_start__ = .
  *(SORT_BY_ALIGNMENT(.bss*))
