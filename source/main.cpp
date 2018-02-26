@@ -6,6 +6,7 @@
  */
 #include "MicroBit.h"
 #include <queue>          // std::queue
+#include <string>
 
 MicroBit uBit;
 
@@ -20,48 +21,45 @@ int EPOCH = 15;
 std::queue<char> charQueue;
 
 
-bool morseInit(){
-        while(true) {
-                if(isMaster == true) {
-                        P0.setDigitalValue(1);
-                        uBit.sleep(300);
-                        P0.setDigitalValue(0);
-                }
-                if(isMaster == false) {
-                        if(P0.getDigitalValue() == 1) {
-                                return true;
-                        }
-                }
-        }
-}
-
+/*
+ *
+ * @param uint64_t delta  duration of user button press
+ * @return
+ */
 void setDotDash(uint64_t delta){
-        if(delta > 150) {
-                charQueue.push('-');
-        }
-        else if((delta < 150) && (delta > 0)) {
-                charQueue.push('.');
+        if(charQueue.size() == 0) {
+                if(delta > 150) {
+                        charQueue.push('.');
+                }
+                else if((delta < 150) && (delta > 0)) {
+                        charQueue.push('-');
+                }
         }
         else{
-                uBit.display.print('nah');
+                if(delta > 150) {
+                        charQueue.push('-');
+                }
+                else if((delta < 150) && (delta > 0)) {
+                        charQueue.push('.');
+                }
         }
 }
 
 bool sendDigitalSignal(){
-        while(charQueue.empty() != true) { // print dot dash to screen
-                if(charQueue.front() == '.') { // timmings needed
+        while(charQueue.empty() != true) {
+                if(charQueue.front() == '.') { //Send Dot
                         P0.setDigitalValue(1);
                         uBit.sleep(50);
                         P0.setDigitalValue(0);
                         charQueue.pop();
                 }
-                else if(charQueue.front() == '-') {
+                else if(charQueue.front() == '-') {// Send Dash
                         P0.setDigitalValue(1);
                         uBit.sleep(150);
                         P0.setDigitalValue(0);
                         charQueue.pop();
                 }
-                else if(charQueue.front() == ' ') {
+                else if(charQueue.front() == ' ') {// TODO Delete?
                         charQueue.pop();
                         uBit.display.clear();
                         return true;
@@ -70,15 +68,7 @@ bool sendDigitalSignal(){
         }
         return true;
 }
-/*
-   void getTime(){
-        uint64_t reading = system_timer_current_time();
-        while (buttonA.isPressed()) {
-                pressed = true;
-        }
-        //time execution loop
-        uint64_t delta = system_timer_current_time() - reading;
-   } */
+
 
 bool setMessage(){
         while(buttonB.isPressed() == false) {
@@ -103,6 +93,23 @@ bool setMessage(){
         return true;
 }
 
+
+void concatenate() {
+        char charArray[5];
+        ManagedString result;
+
+        charQueue.push('.');
+        charQueue.push('-');
+        charQueue.push('f');
+
+        for (std::size_t i = 0; i < charQueue.size(); i++) {
+                charArray[i] = charQueue.front();
+                charQueue.pop();
+                result = result + charArray[i];
+        }
+        uBit.display.print(result);
+}
+
 int main()
 {
         // Initialise the micro:bit runtime.
@@ -116,20 +123,12 @@ int main()
                         }
                 }
                 else if(buttonB.isPressed()) {//Slave
-                  while(true){
-                    //Chris's code
-                  }
+                        while(true) {
+                                //Chris's code
+                                concatenate();
+                        }
                 }
         }
 
-
-        //sendDigitalSignal();
-        //main loop
-
-        //get slave or Master
-        //init / check connection
-        //if True send / receive
-        //else wait
-        //Select A(Master) or B(Slave)
         release_fiber();
 }
