@@ -17,7 +17,6 @@ MicroBitButton buttonB(MICROBIT_PIN_BUTTON_B, MICROBIT_ID_BUTTON_B);
 bool isMaster = true;
 bool pressed = false;
 bool bPressed = false;
-int EPOCH = 15;
 std::queue<char> charQueue;
 
 
@@ -28,22 +27,22 @@ std::queue<char> charQueue;
  * @return none
  */
 void setDotDash(uint64_t delta){
-        if(charQueue.size() == 0) {
+        /*if(charQueue.size() == 0) {
                 if(delta > 150) { //Basic swap cypher changing first dot to dash and vice versa
                         charQueue.push('.');
                 }
                 else if((delta < 150) && (delta > 0)) {
                         charQueue.push('-');
                 }
+           }
+           else{*/
+        if(delta > 150) {         //selecting dot or dash to enque from delta
+                charQueue.push('-');
         }
-        else{
-                if(delta > 150) { //selecting dot or dash to enque from delta
-                        charQueue.push('-');
-                }
-                else if((delta < 150) && (delta > 0)) {
-                        charQueue.push('.');
-                }
+        else if((delta < 150) && (delta > 0)) {
+                charQueue.push('.');
         }
+        //}
 }
 
 
@@ -59,16 +58,19 @@ bool sendDigitalSignal(){
                         P0.setDigitalValue(1);
                         uBit.sleep(50);
                         P0.setDigitalValue(0);
+                        uBit.display.print("a");
                         charQueue.pop();
                 }
                 else if(charQueue.front() == '-') {// Send Dash
                         P0.setDigitalValue(1);
                         uBit.sleep(150);
                         P0.setDigitalValue(0);
+                        uBit.display.print("b");
                         charQueue.pop();
                 }
                 uBit.sleep(50);
         }
+        uBit.sleep(500);
         return true;
 }
 
@@ -102,29 +104,6 @@ bool setMessage(){
 }
 
 /**
- * void concatenate(): converts charQueue elements into a string
- *
- * @param none
- * @return true
- */
-void concatenate() {
-        char charArray[5];
-        ManagedString result;
-
-        charQueue.push('.');
-        charQueue.push('-');
-        charQueue.push('f');
-
-        for (std::size_t i = 0; i < charQueue.size(); i++) {
-                charArray[i] = charQueue.front();
-                charQueue.pop();
-                result = result + charArray[i];
-        }
-        uBit.display.print(result);
-}
-
-
-/**
  * int main(): Master and slave implementation of morse code, A selects master, B selects slave.
  *
  * @param none
@@ -140,12 +119,13 @@ int main()
                         while(true) {
                                 setMessage();
                                 sendDigitalSignal();
+
                         }
                 }
                 else if(buttonB.isPressed()) {//Slave
                         while(true) {
                                 //Chris's code
-                                concatenate();
+
                         }
                 }
         }
