@@ -11,6 +11,16 @@ MicroBitSerial serial(USBTX, USBRX);
 std::queue<char> charQueue;
 std::unordered_multimap<std::string, char> Morse;
 
+
+/**
+ * standard string concatenate(): while the character queue (which contains the sent dots and dashes)
+ * is not empty we push the front of the queue to the std string result. This joins the dots and dashes
+ * together so that translate can read the vairable in.
+ * @param none
+ * @return result: Used to store the dots and dashes. Result is returned so that it can be fed into translate.
+ */
+
+
 std::string concatenate() {
     std::string result = "";
     while (!charQueue.empty()) {
@@ -21,6 +31,15 @@ std::string concatenate() {
 }
 
 
+/**
+ * char translate(std::string morse)
+ * takes a standard string of dots and dashes, checksa whether the value matches that of any of the first elements within
+ * the hash table. If the first element matches the string then return the second element.
+ * @param std::string morse : a standard string named morse is used to find out whether the first element within the
+ * hash table matches the string.
+ * @return iterator-> second: The second element within the hash table is returned.
+ */
+
 char translate(std::string morse) {
     auto iterator = Morse.find(morse);
     if (iterator == Morse.end()) {
@@ -30,78 +49,16 @@ char translate(std::string morse) {
 
 }
 
-void checkConnection() {
-    while (true) {
-        if (uBit.io.P0.getDigitalValue() != 0) {
-            uBit.display.scroll("y");
-        } else {
-            uBit.display.scroll("n");
-        }
-    }
-}
 
-/*void receiveSignal() {
-    bool pinOn = false;
-    bool timeOut = false;
-
-    while (!timeOut) {
-        uint64_t currentTime = system_timer_current_time();
-        //read current number of milliseconds
-        while (P0.getDigitalValue() != 0) {
-            pinOn = true;
-        }
-
-        //actual time for dot or dash.
-        uint64_t delta = system_timer_current_time() - currentTime;
-
-        if(pinOn){
-            if (delta > 100) {
-                charQueue.push('-');
-                uBit.sleep(45);
-            } else if (delta > 50) {
-                charQueue.push('.');
-                uBit.sleep(45);
-            }
-        }
-        else{
-            pinOn = false;
-            timeOut= true;
-            uBit.display.print('a');
-        }
-
-    }
-}*/
+/**
+ * void receiveSignal():
+ * The amount of time is measured since the message has been sent from the other microbit. This is valued by the digital
+ * value of the pin. The time measures whether to push a dot or a dash to the queue.
+ * @param none
+ * @return none
+ */
 
 void receiveSignal() {
-
-//    bool pinOn = false;
-//
-//    while (P0.getDigitalValue()) {
-//        uint64_t currentTime = system_timer_current_time();
-//        //read current number of milliseconds
-//        while (P0.getDigitalValue() == 1) {
-//            pinOn = true;
-//        }
-//
-//        //actual time for dot or dash.
-//        uint64_t delta = system_timer_current_time() - currentTime;
-//
-//        if (delta > 100) {
-//            charQueue.push('-');
-//            uBit.sleep(49);
-//            pinOn = false;
-//            uBit.display.print("-");
-//        } else if (delta > 10) {
-//            charQueue.push('.');
-//            uBit.sleep(49);
-//            pinOn = false;
-//            uBit.display.print(".");
-//        }
-//        else{
-//            uBit.display.print("b");
-//        }
-//    }
-
     Timer timer;
     timer.start();
 
@@ -135,17 +92,14 @@ void receiveSignal() {
     }
 }
 
-//void printAll(std::queue<char> queue){
-//    while(!queue.empty()){
-//        uBit.display.print(queue.front());
-//        queue.pop();
-//        uBit.sleep(500);
-//        uBit.display.clear();
-//    }
-//}
 
-
-
+/**
+ * void main():
+ * runs the code and adds the relevant pairs to the hash table.
+ *
+ * @param none
+ * @return none
+ */
 
 int main() {
     // Initialise the micro:bit runtime.
@@ -189,23 +143,11 @@ int main() {
     Morse.insert(std::make_pair("-----", '0'));
 
 
-//    charQueue.push('-');
-//    charQueue.push('-');
-//    charQueue.push('-'); // char o representation
 
-    serial.baud(115200);
-    serial.send("test\r\n");
+
     while(true){
         receiveSignal();
         uBit.display.print(translate(concatenate()));
-        //checkConnection();
     }
 
-
-//
-//    uBit.display.scroll(translate(".--"));
-//    uBit.display.scroll(translate(concatenate()));
-
-
-    release_fiber();
 }
