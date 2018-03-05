@@ -27,7 +27,7 @@ std::queue<char> charQueue;
  * @return none
  */
 void setDotDash(uint64_t delta){
-        /*if(charQueue.size() == 0) {
+        if(charQueue.size() == 0) {
                 if(delta > 150) { //Basic swap cypher changing first dot to dash and vice versa
                         charQueue.push('.');
                 }
@@ -35,14 +35,14 @@ void setDotDash(uint64_t delta){
                         charQueue.push('-');
                 }
            }
-           else{*/
+           else{
         if(delta > 150) {         //selecting dot or dash to enque from delta
                 charQueue.push('-');
         }
         else if((delta < 150) && (delta > 0)) {
                 charQueue.push('.');
         }
-        //}
+      }
 }
 
 
