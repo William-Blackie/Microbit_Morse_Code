@@ -1,3 +1,10 @@
+/**
+ * File: main.cpp
+ * Author: William Blackie & Chris Taylor
+ * Date: 05-03-2018
+ * Desc: Implmenetation of communications of morse code between two BBC Microbits
+ */
+
 #include "MicroBit.h"
 #include <queue>
 #include<unordered_map>
@@ -80,15 +87,30 @@ void receiveSignal() {
 
         int duration = timer.read_ms();
 
-        if (duration < 100) {
-            charQueue.push('.');
-            uBit.display.print(".");
-        } else if (duration < 200) {
-            charQueue.push('-');
-            uBit.display.print("-");
-        } else {
-            return;
+        if(charQueue.size() == 0){
+            if (duration < 100) {
+                charQueue.push('-');
+                uBit.display.print("-");
+            } else if (duration < 200) {
+                charQueue.push('.');
+                uBit.display.print(".");
+            } else {
+                return;
+            }
+        } else{
+
+            if (duration < 100) {
+                charQueue.push('.');
+                uBit.display.print(".");
+            } else if (duration < 200) {
+                charQueue.push('-');
+                uBit.display.print("-");
+            } else {
+                return;
+            }
         }
+
+
     }
 }
 
