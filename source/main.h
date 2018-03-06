@@ -23,7 +23,7 @@ std::string concatenate();
  * hash table matches the string.
  * @return iterator-> second: The second element within the hash table is returned.
  */
-void receiveSignal();
+char translate(std::string morse);
 
 /**
  * void receiveSignal():
@@ -32,6 +32,7 @@ void receiveSignal();
  * @param none
  * @return none
  */
-char translate(std::string morse);
+void receiveSignal();
+
 
 #endif //RECEIVE_MAIN_H
