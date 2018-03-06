@@ -59,14 +59,17 @@ bool sendDigitalSignal(){
                         uBit.sleep(50);
                         P0.setDigitalValue(0);
                         charQueue.pop();
+                        uBit.display.print(".");
                 }
                 else if(charQueue.front() == '-') {// Send Dash
                         P0.setDigitalValue(1);
                         uBit.sleep(150);
                         P0.setDigitalValue(0);
                         charQueue.pop();
+                        uBit.display.print("-");
                 }
                 uBit.sleep(50);
+                uBit.display.clear();
         }
         uBit.sleep(500);
         return true;
