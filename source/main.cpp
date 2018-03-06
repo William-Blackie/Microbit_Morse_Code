@@ -5,6 +5,7 @@
  * Desc: Implmenetation of communications of morse code between two BBC Microbits
  */
 #include "MicroBit.h"
+#include "main.h"
 #include <queue>          // std::queue
 #include <string>
 
@@ -34,15 +35,15 @@ void setDotDash(uint64_t delta){
                 else if((delta < 150) && (delta > 0)) {
                         charQueue.push('-');
                 }
-           }
-           else{
-        if(delta > 150) {         //selecting dot or dash to enque from delta
-                charQueue.push('-');
         }
-        else if((delta < 150) && (delta > 0)) {
-                charQueue.push('.');
+        else{
+                if(delta > 150) { //selecting dot or dash to enque from delta
+                        charQueue.push('-');
+                }
+                else if((delta < 150) && (delta > 0)) {
+                        charQueue.push('.');
+                }
         }
-      }
 }
 
 
@@ -105,7 +106,7 @@ bool setMessage(){
 }
 
 /**
- * int main(): Master and slave implementation of morse code, A selects master, B selects slave.
+ * int main(): Master implementation of morse code.
  *
  * @param none
  * @return int
@@ -115,20 +116,10 @@ int main()
         // Initialise the micro:bit runtime.
         uBit.init();
 
-        while(true) {
-                if(buttonA.isPressed()) {//Master
-                        while(true) {
-                                setMessage();
-                                sendDigitalSignal();
+        while(true) { // Master
+                setMessage();
+                sendDigitalSignal();
 
-                        }
-                }
-                else if(buttonB.isPressed()) {//Slave
-                        while(true) {
-                                //Chris's code
-
-                        }
-                }
         }
 
         release_fiber();
