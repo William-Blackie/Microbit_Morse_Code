@@ -30,7 +30,7 @@ this will build all the files needed to run Morse on the Microbits.
 this command will copy the hex file built by yotta containing morse files onto your microbit allowing you to play.
 
 However,due to there being a master and a slave microbit there will be two files to be copied, one to each.
-The files you will need to copy can be found in source of the repository.
+The files you will need to copy can be found in the repository master.
 The master main.cpp is in the master folder while, the slave main.cpp is in the slave folder.
 
 ### Controlls 
